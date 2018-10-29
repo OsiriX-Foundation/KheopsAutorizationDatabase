@@ -9,7 +9,7 @@ DROP SEQUENCE IF EXISTS album_pk_seq;
 CREATE SEQUENCE album_pk_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
 
 CREATE TABLE "album" (
-    "pk" integer DEFAULT nextval('album_pk_seq') NOT NULL,
+    "pk" bigint DEFAULT nextval('album_pk_seq') NOT NULL,
     "name" character(255) NOT NULL,
     "description" character(2048),
     "created_time" timestamp NOT NULL,
@@ -29,7 +29,7 @@ DROP SEQUENCE IF EXISTS users_pk_seq;
 CREATE SEQUENCE users_pk_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
 
 CREATE TABLE "users" (
-    "pk" integer DEFAULT nextval('users_pk_seq') NOT NULL,
+    "pk" bigint DEFAULT nextval('users_pk_seq') NOT NULL,
     "created_time" timestamp NOT NULL,
     "updated_time" timestamp NOT NULL,
     "google_id" character(255) NOT NULL,
@@ -51,7 +51,7 @@ DROP SEQUENCE IF EXISTS studies_pk_seq;
 CREATE SEQUENCE studies_pk_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
 
 CREATE TABLE "studies" (
-    "pk" integer DEFAULT nextval('studies_pk_seq') NOT NULL,
+    "pk" bigint DEFAULT nextval('studies_pk_seq') NOT NULL,
     "created_time" timestamp NOT NULL,
     "updated_time" timestamp NOT NULL,
     "study_uid" character(255) NOT NULL,
@@ -90,7 +90,7 @@ DROP SEQUENCE IF EXISTS series_pk_seq;
 CREATE SEQUENCE series_pk_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
 
 CREATE TABLE "series" (
-    "pk" integer DEFAULT nextval('series_pk_seq') NOT NULL,
+    "pk" bigint DEFAULT nextval('series_pk_seq') NOT NULL,
     "created_time" timestamp NOT NULL,
     "updated_time" timestamp NOT NULL,
     "modality" character(255),
@@ -118,7 +118,7 @@ DROP SEQUENCE IF EXISTS capabilities_pk_seq;
 CREATE SEQUENCE capabilities_pk_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
 
 CREATE TABLE "capabilities" (
-    "pk" integer DEFAULT nextval('capabilities_pk_seq') NOT NULL,
+    "pk" bigint DEFAULT nextval('capabilities_pk_seq') NOT NULL,
     "created_time" timestamp NOT NULL,
     "updated_time" timestamp NOT NULL,
     "expiration_time" timestamp,
@@ -162,7 +162,7 @@ DROP SEQUENCE IF EXISTS album_user_pk_seq;
 CREATE SEQUENCE album_user_pk_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
 
 CREATE TABLE "album_user" (
-    "pk" integer DEFAULT nextval('album_user_pk_seq') NOT NULL,
+    "pk" bigint DEFAULT nextval('album_user_pk_seq') NOT NULL,
     "album_fk" bigint NOT NULL,
     "user_fk" bigint NOT NULL,
     "admin" boolean NOT NULL,
@@ -182,7 +182,7 @@ DROP SEQUENCE IF EXISTS event_pk_seq;
 CREATE SEQUENCE event_pk_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
 
 CREATE TABLE "event" (
-    "pk" integer DEFAULT nextval('event_pk_seq') NOT NULL,
+    "pk" bigint DEFAULT nextval('event_pk_seq') NOT NULL,
     "event_type" character(255),
     "album_fk" bigint,
     "study_fk" bigint,
