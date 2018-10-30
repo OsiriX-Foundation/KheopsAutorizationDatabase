@@ -4,6 +4,8 @@
 --   LC_COLLATE = "en_US.UTF-8"
 --   LC_CTYPE = "en_US.UTF-8";
 
+CREATE EXTENSION fuzzystrmatch SCHEMA public;
+
 DROP TABLE IF EXISTS "album";
 DROP SEQUENCE IF EXISTS album_pk_seq;
 CREATE SEQUENCE album_pk_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
@@ -201,3 +203,5 @@ CREATE TABLE "event" (
     CONSTRAINT "event_to_user_fk_fkey" FOREIGN KEY (to_user_fk) REFERENCES users(pk) ON DELETE RESTRICT NOT DEFERRABLE,
     CONSTRAINT "event_user_fk_fkey" FOREIGN KEY (user_fk) REFERENCES users(pk) ON DELETE RESTRICT NOT DEFERRABLE
 ) WITH (oids = false);
+
+
